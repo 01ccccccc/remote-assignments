@@ -63,7 +63,7 @@ a {
 
 
 .main-header {
-    background: #e1e1e1;
+    background: #eeeeee;
 	/* padding-top: .3em;
 	padding-bottom: .3em;
     padding-left: .3em; */
@@ -82,31 +82,36 @@ a {
 
 .banner {
     color: #000;
-    background: #8db4bb;
+    background: #d0dcec;
     padding: 5em 0;
-    /* margin-bottom: 48px; */
 }
 
 .row {
-    width: 80%;
     justify-content: center;
-    margin: auto;
+    /* margin: auto; */
 }
 
 
 .col {
-    width: 600px;
     text-align: center;
-    background: #3f555f;
+    background: #909cac;
     padding: 1em 0;
-	margin: 0 .5em .8em;
+	margin: 0 0.5em .8em;
 
 }
 
 .main-footer {
-    background: #8db4bb;
-	padding: 1em 0;
-	margin-top: 5px;
+    display: inline-block;
+    text-align: center;
+    background: #d0dcec;
+	padding: 0.5em 0;
+    
+    height:50px;
+    width:150px;
+
+    margin: 0 auto;
+    display: block;
+    line-height: 20px;
 }
 
 
@@ -141,5 +146,6 @@ a {
 		margin: 0 auto;
 		/* max-width: 1200px; */
 	}
+
 }    
  
