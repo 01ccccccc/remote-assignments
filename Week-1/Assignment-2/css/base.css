@@ -142,9 +142,8 @@ a {
     }
 
     .row {
-		width: 80%;
+		width: 1200px;
 		margin: 0 auto;
-		/* max-width: 1200px; */
 	}
 
 }    
