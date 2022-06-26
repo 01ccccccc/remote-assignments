@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function sendAJAX() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.getElementById('ajax').innerHTML = xhr.responseText;               
+                    }          
+                };
+                
+                var toAdd = document.getElementById('inputNumber').value;
+                var url = "http://localhost:3000/data?number=" + toAdd;
+
+                xhr.open('GET', url);
+                xhr.send();
+                //document.getElementById('button').style.display = "none";                
+            }
+            
+        </script>
+    </head>
+    <body>
+        <label>Please enter the number to get the result of adding up from 1 to number:</label>
+            <input type="text" id="inputNumber">
+        <button type="button" id="button" onclick="sendAJAX()">Submit</button>
+        <br>
+        <div id="ajax"></div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+doctype html 
+html(lang="en")
+    head 
+        title My Server
+    body 
+    block content 
+        if name 
+            h2 username: #{name}
+            form(action='/goodbye', method='post')
+                button(type='submit') Goodbye
+        else   
+            form(action='/trackName', method='get')
+                label Please enter your name: 
+                    input(type='text', name='name')
+                button(type='submit') Submit
+                //- , onclick='/trackName'
+        
