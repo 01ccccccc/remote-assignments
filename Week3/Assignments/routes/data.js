@@ -11,7 +11,7 @@ router.get('/:id?', (req, res) => {
         console.log("null");
         return res.render('data', { text: "Lack of Parameter"});
     } else {
-        if (isNaN(Number(number)) === true ) { // use num.num to send the varible we want
+        if (isNaN(Number(number)) === true ) { // to be sure the type of number is number using Number()
             res.render('data', { text: "Wrong Parameter"});            
         } else {
             var total = 0;
@@ -23,18 +23,12 @@ router.get('/:id?', (req, res) => {
     }
 });
 
+/* 
+2. (Optional) Think about what will happen when N is very large?
 
-// router.post('/', (req, res) => {
-//     const num = res.cookie('inputNumber', req.body.inputNumber);
-//     res.render('data', )
-// });
+I tried input 99999999 or more, the browser loads much slower than normal number, 
+bur eventually successfully summed if up. Maybe improving algorithm can help.
 
-
-
-
-// router.post('/data', (req, res) => {
-//     res.cookie('')
-// })
-
+*/
 
 module.exports = router;

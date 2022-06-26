@@ -7,44 +7,22 @@ router.get('/', (req, res) => {
 
 
 router.get('/myName', (req, res) => {
-    const name = req.cookies.username;
+    const name = req.cookies.name;
+
     if (name) {
-        console.log(name);
         res.render('myName', {name: name});
     } else {
-        console.log("else");
         res.render('myName');
     }
 });
 
-
-router.post('/myName', (req, res) => {
-    //res.cookie('name', req.body.name);
-    console.log(req.query.name);
-    res.redirect('/trackName');
-});
-
-
-router.get('/trackName', (req, res) => {    
-
-    res.send(req.query.name);
+router.get('/trackName', (req, res) => {
+    const name = req.cookies.name;
     
-});
-
-// //console.log(req.query.name);
-// const name = req.query.name;
-// Cookies.set('name', name);
-// //res.cookie('name', req.query.name);
-// console.log(name);
-
-
-router.get(':id', (req, res) => {
-    //const name = req.query.name;
-    console.log(req.query.name);
-    //console.log(req.query.name);
     res.cookie('name', req.query.name);
     res.redirect('/myName');
-})
+});
+
 
 
 
@@ -52,5 +30,34 @@ router.post('/goodbye', (req, res) => {
     res.clearCookie('name');
     res.redirect('/myName');
 });
+
+// //  需要驗證的頁面
+// router.get('/', (req, res) => {
+
+//     var name = 'guest';
+//     isLogin = false;
+//     if (req.signedCookies.name) {
+//         isLogin = true;
+//     }
+//     res.render('index', {name: name, logstatus: isLogin});
+// });
+
+// // 表單送出後
+// router.post('/myName', (req, res) => {
+//     if (req.body.name == "") {
+//         return res.redirect('/');
+//     } else {
+//         res.cookie('name', req.body.name); //set cookie
+//         return res.redirect('/')
+//     }
+// });
+
+// // 登出
+// router.get('/goodbye', (req, res) => {
+//     res.clearCookie('name');
+//     return res.redirect('/')
+// });
+
+
 
 module.exports = router;
