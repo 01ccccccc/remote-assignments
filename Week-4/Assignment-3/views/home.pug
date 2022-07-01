@@ -1,0 +1,26 @@
+extends layout
+
+block content 
+    h2 Sign Up
+    div
+    form(action='/auth', method='get')
+        label Email: 
+            input(type='text', name='email', id='emailLogin', required)
+        br
+        label Password: 
+            input(type='password', name='password', id='passwordLogin',  required)
+        br
+        button(type='submit') Login
+    p #{logInMessage}
+
+    h2 Sign In
+    div(id="signin")
+    form(action='/check', method='get')
+        label Email: 
+            input(type='text', name='email', id='emailSignin', required)
+        br
+        label Password: 
+            input(type='password', name='password', id='passwordSignin', required)
+        br
+        button(type='submit') Sign In
+    p #{signInMessage}
