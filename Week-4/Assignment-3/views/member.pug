@@ -2,3 +2,5 @@ extends layout
 
 block content 
     h2 Welcome, #{email} !
+    form(action='/logout', method='post')
+        button(type='submit') Log Out

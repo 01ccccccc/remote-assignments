@@ -26,6 +26,8 @@ db.connect((err) => {
 const app = express();
 
 app.use(session({secret: 'mySecret', resave: false, saveUninitialized: false})); // using for passing text to res.redirect()
+app.use(express.static('public'));
+
 app.use(cookieParser());
 app.set('view engine', 'pug');
 
@@ -34,7 +36,7 @@ app.get('/createdb', (req, res) => {
     let sql = 'CREATE DATABASE IF NOT EXISTS assignment';
     db.query(sql, (err, result) => {
         if(err) throw err;
-        console.log(result);
+        //console.log(result);
         res.send('Database created...');
     });
 });
@@ -65,7 +67,7 @@ app.get('/auth', (req, res) => {
     if (user) {
         db.query(sql, user, (err, result) => {
             if(err) throw err;
-            console.log(result.warningCount);
+            //console.log(result.warningCount);
             if (result.warningCount != 0){
                 res.render('home', {logInMessage: 'Email already exists'});
             } else {
@@ -102,6 +104,11 @@ app.get('/member', (req, res) => {
     let message = req.session.message;
     res.render('member', {email: message});
 });
+
+app.post('/logout', (req, res) => {
+    res.redirect('/');
+})
+
 
 app.listen('3000', () => {
     console.log('Server started on port 3000');
