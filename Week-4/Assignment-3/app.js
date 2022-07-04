@@ -9,7 +9,7 @@ const session = require('express-session');
 const db = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'root',
+    password : 'c923761997',
     database : 'assignment'
 });
 
